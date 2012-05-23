@@ -46,6 +46,10 @@ vows.describe('GoogleStrategy').addBatch({
       assert.equal(params.access_type, 'offline');
       assert.equal(params.approval_prompt, 'force');
     },
+    'should return user_id': function (strategy) {
+      var params = strategy.authorizationParams({ userID: 'user@gmail.com' });
+      assert.equal(params.user_id, 'user@gmail.com');
+    },
   },
   
   'strategy when loading user profile': {
